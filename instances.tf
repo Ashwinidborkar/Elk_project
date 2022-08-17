@@ -4,7 +4,7 @@ resource "aws_instance" "kibana_server" {
   instance_type = "t3.micro"
 
   vpc_security_group_ids = [aws_security_group.kibana_server_sg.id]
-  key_name               = "ec2key"
+  key_name               = "talent-academy-lab"
   subnet_id              = aws_subnet.kibana_public_subnet1.id
 
 
@@ -22,7 +22,7 @@ resource "aws_instance" "bastion_server" {
   instance_type = "t3.micro"
 
   vpc_security_group_ids = [aws_security_group.bastion_server_sg.id]
-  key_name               = "ec2key"
+  key_name               = "talent-academy-lab"
   subnet_id              = aws_subnet.kibana_public_subnet1.id
 
 
@@ -45,7 +45,7 @@ resource "aws_instance" "elastic_server" {
   ami           = data.aws_ami.kibana_ami.id
   instance_type = "t3.medium"
   vpc_security_group_ids = [aws_security_group.elastic_server_sg.id]
-  key_name               = "ec2key"
+  key_name               = "talent-academy-lab"
   subnet_id              = aws_subnet.monitor_private_subnet1.id
 
 
